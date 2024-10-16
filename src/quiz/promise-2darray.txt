@@ -1,1 +1,20 @@
 Explain the code execution based on the order of the messages logged in src/quiz/promise-2darray.txt.
+
+After the change:
+Sum called ...
+returning from sum
+Sum called ...
+returning from sum
+sp2 error: Cannot sum an empty array
+Adding 1 to sum
+Adding 2 to sum
+Adding 3 to sum
+Adding 4 to sum
+Adding 5 to sum
+Adding 6 to sum
+Adding 7 to sum
+Adding 8 to sum
+Adding 9 to sum
+sp1 result: 45
+
+Timeout functions get called after the promise has been called and been "done". Once it's done, there's a signal sent to the then and the catch. The logic runs on a separate event queue, not on the main thread. This is because of the event loop architecture of Node. There's an event queue and main thread.

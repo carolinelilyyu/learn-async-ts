@@ -13,7 +13,7 @@ function sum2DArray(arr: number[][]): Promise<number> {
                 }
             }
             resolve(sum);
-        }, 0);
+        }, 0); 
         console.log('returning from sum');
     });
 }
@@ -25,8 +25,18 @@ const array2D = [
     [7, 8, 9]
 ];
 
-const sumPromise1 = sum2DArray(array2D);
-console.log('sumPromise1:', sumPromise1);
+// const sumPromise1 = sum2DArray(array2D);
+// console.log('sumPromise1:', sumPromise1);
 
-const sumPromise2 = sum2DArray([]);
-console.log('sumPromise2:', sumPromise2);
+// const sumPromise2 = sum2DArray([]);
+// console.log('sumPromise2:', sumPromise2);
+
+const sp1 = sum2DArray(array2D);
+sp1.then((res) => console.log('sp1 result:', res))
+    .catch((err) => console.log('sp1 error:', err));
+
+
+const sp2 = sum2DArray([]);
+sp2.then((res) => console.log('sp2 result:',res))
+    .catch((err) => console.log('sp2 error:', err));
+    
